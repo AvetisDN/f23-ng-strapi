@@ -1,0 +1,22 @@
+<div
+  class="w-full min-h-[calc(100vh-116px)] 2xl:min-h-[calc(100vh-130.5px)] flex items-center justify-center pb-32"
+>
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      class="input"
+      placeholder="Username or E-Mail"
+      formControlName="identifier"
+    />
+    <input
+      type="password"
+      class="input"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <div></div>
+    <button>Login</button>
+    <div></div>
+    <a routerLink="/register">Create new account</a>
+  </form>
+</div>

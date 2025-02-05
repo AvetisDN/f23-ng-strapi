@@ -1,0 +1,21 @@
+@if (show()) {
+<div
+  class="fixed bottom-5 right-5 p-5 pr-7 pt-6 rounded-2xl shadow-xl max-w-72"
+  [class]="{
+    'bg-green-600': type() === 'success',
+    'text-green-50': type() === 'success',
+    'bg-red-600': type() === 'error',
+    'text-red-50': type() === 'error',
+    'bg-zinc-100': type() === 'info',
+    'dark:bg-zinc-700': type() === 'info',
+  }"
+>
+  {{ text() }}
+  <button
+    class="absolute top-2 right-2 w-5 h-5 bg-black/20 rounded-full flex items-center justify-center"
+    (click)="hide()"
+  >
+    &times;
+  </button>
+</div>
+}

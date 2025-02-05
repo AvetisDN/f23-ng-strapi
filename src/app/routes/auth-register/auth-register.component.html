@@ -1,0 +1,28 @@
+<div
+  class="w-full min-h-[calc(100vh-116px)] 2xl:min-h-[calc(100vh-130.5px)] flex items-center justify-center pb-32"
+>
+  <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      class="input"
+      placeholder="Username"
+      formControlName="username"
+    />
+    <input
+      type="email"
+      class="input"
+      placeholder="E-Mail"
+      formControlName="email"
+    />
+    <input
+      type="password"
+      class="input"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <div></div>
+    <button>Register</button>
+    <div></div>
+    <a routerLink="/login">I have an account</a>
+  </form>
+</div>

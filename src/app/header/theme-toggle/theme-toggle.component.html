@@ -1,0 +1,36 @@
+<div class="relative">
+  <button
+    class="bg-primary-700 dark:bg-zinc-950 w-9 h-9 flex items-center justify-center rounded-full"
+    (click)="showDropdown = !showDropdown"
+  >
+    <i-feather [name]="getCurrentIcon()" class="!w-5 !h-5" />
+  </button>
+  @if (showDropdown) {
+  <div class="fixed inset-0" (click)="showDropdown = !showDropdown"></div>
+  <div
+    class="absolute bg-primary-700 dark:bg-zinc-950 p-4 rounded-lg flex flex-col gap-1 left-[50%] -translate-x-[50%] top-full mt-1.5"
+  >
+    <button
+      class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-primary-500"
+      [class]="{ 'bg-primary-500': currentTheme() === 'sys' }"
+      (click)="setCurrentTheme('sys')"
+    >
+      <i-feather name="monitor" class="!w-5 !h-5" />
+    </button>
+    <button
+      class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-primary-500"
+      [class]="{ 'bg-primary-500': currentTheme() === 'dark' }"
+      (click)="setCurrentTheme('dark')"
+    >
+      <i-feather name="moon" class="!w-5 !h-5" />
+    </button>
+    <button
+      class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-primary-500"
+      [class]="{ 'bg-primary-500': currentTheme() === 'light' }"
+      (click)="setCurrentTheme('light')"
+    >
+      <i-feather name="sun" class="!w-5 !h-5" />
+    </button>
+  </div>
+  }
+</div>

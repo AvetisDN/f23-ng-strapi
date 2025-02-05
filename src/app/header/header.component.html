@@ -1,0 +1,55 @@
+<header
+  class="container bg-primary-600 dark:bg-zinc-800 p-4 px-6 rounded-full flex items-center gap-8 text-zinc-200"
+>
+  <a
+    href="#"
+    class="text-sky-100 dark:text-primary-300 font-extrabold text-2xl flex items-center"
+  >
+    <i-feather name="cpu" class="!stroke-[2.5px] !w-8 !h-8"></i-feather>
+    <span class="text-pink-300 ms-2">B</span>LOGO
+  </a>
+  <nav class="ms-auto flex gap-1 items-center">
+    <a
+      routerLink="/"
+      class="w-8 h-8 flex items-center justify-center rounded-full"
+      routerLinkActive="bg-primary-500"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i-feather name="home" class="!w-4 !h-4 !stroke-[2.5px]" />
+    </a>
+    @if (user().id === 0) {
+    <a
+      routerLink="/login"
+      class="h-8 flex items-center justify-center rounded-full px-3"
+      routerLinkActive="bg-primary-500"
+    >
+      Login
+    </a>
+    <a
+      routerLink="/register"
+      class="h-8 flex items-center justify-center rounded-full px-3"
+      routerLinkActive="bg-primary-500"
+    >
+      Join
+    </a>
+    } @else {
+    <a routerLink="/dashboard" class="flex items-center gap-2 ms-4">
+      <div
+        class="w-8 h-8 bg-primary-600 text-primary-50 rounded-full flex justify-center items-center font-black"
+      >
+        {{ user().username[0].toUpperCase() }}
+      </div>
+      <div>{{ user().username }}</div>
+    </a>
+    <button
+      class="ms-4 w-8 h-8 bg-red-500 text-red-50 rounded-full flex justify-center items-center font-black"
+      (click)="onLogout()"
+    >
+      <i-feather name="log-out" class="!w-4 !h-4 !stroke-[4px]" />
+    </button>
+    }
+  </nav>
+  <div>
+    <app-theme-toggle />
+  </div>
+</header>

@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --default-font-family: "Ubuntu Sans", system-ui;
+  --color-primary-50: var(--color-blue-50);
+  --color-primary-100: var(--color-blue-100);
+  --color-primary-200: var(--color-blue-200);
+  --color-primary-300: var(--color-blue-300);
+  --color-primary-400: var(--color-blue-400);
+  --color-primary-500: var(--color-blue-500);
+  --color-primary-600: var(--color-blue-600);
+  --color-primary-700: var(--color-blue-700);
+  --color-primary-800: var(--color-blue-800);
+  --color-primary-900: var(--color-blue-900);
+  --color-primary-950: var(--color-blue-950);
+}
+
+@utility container {
+  margin-inline: auto;
+}
+
+:root {
+  @apply font-medium text-[16px] 2xl:text-[18px];
+}
+
+button,
+a {
+  @apply cursor-pointer transition-colors;
+}
+
+.form {
+  @apply bg-zinc-100 dark:bg-zinc-800 p-6 rounded-2xl shadow-lg w-screen max-w-sm flex flex-col gap-3;
+  .input {
+    @apply border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-900 py-2 px-4 rounded-full;
+  }
+  button {
+    @apply bg-primary-600 text-primary-50 py-3 px-4 rounded-full hover:bg-primary-500 active:bg-primary-700;
+  }
+  a {
+    @apply self-center text-primary-500 hover:text-pink-600;
+  }
+}
+
+.category-menu {
+  @apply flex flex-col gap-3;
+  li {
+    a {
+      @apply text-lg font-semibold hover:text-pink-500;
+      &.active {
+        @apply text-primary-500;
+      }
+    }
+  }
+  ul {
+    @apply ps-4 mt-2 flex flex-col gap-2;
+    li {
+      a {
+        @apply text-base;
+      }
+    }
+  }
+}
