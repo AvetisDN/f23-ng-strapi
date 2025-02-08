@@ -62,3 +62,46 @@ a {
     }
   }
 }
+
+.single-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    @apply mb-[1em];
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-black;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+}
+
+.comment-form {
+  @apply bg-zinc-100 dark:bg-zinc-800 p-5 rounded-lg;
+  form {
+    @apply flex items-end gap-4;
+    textarea {
+      @apply border-zinc-300 dark:border-zinc-600 border-2 p-4 rounded-md grow outline-none focus:border-zinc-500;
+    }
+    button {
+      @apply flex p-4 bg-primary-500 text-primary-50 rounded-lg disabled:opacity-50 disabled:pointer-events-none;
+    }
+  }
+}

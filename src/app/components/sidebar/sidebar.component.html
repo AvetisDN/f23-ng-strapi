@@ -1,6 +1,4 @@
-<aside
-  class="bg-zinc-100 dark:bg-zinc-800 p-5 rounded-2xl w-3xs flex flex-col gap-4 shadow"
->
+<aside class="p-3 w-3xs flex flex-col gap-4">
   <h4 class="opacity-50 font-bold uppercase">Categories ({{ total() }})</h4>
   <ul class="category-menu">
     <li>
@@ -12,52 +10,31 @@
         All Posts
       </a>
     </li>
+    @for (cat of categories(); track $index) {
     <li>
       <a
-        routerLink="/category/1"
+        [routerLink]="'/category/' + cat.id"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        Category Name
+        {{ cat.title }}
       </a>
+      @if (cat.categories.length) {
       <ul>
+        @for (subCat of cat.categories; track $index) {
         <li>
           <a
-            routerLink="/category/2"
+            [routerLink]="'/category/' + subCat.id"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            SubCategory Name
+            {{ subCat.title }}
           </a>
         </li>
-        <li>
-          <a
-            routerLink="/category/3"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            SubCategory Name
-          </a>
-        </li>
+        }
       </ul>
+      }
     </li>
-    <li>
-      <a
-        routerLink="/category/4"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        Category Name
-      </a>
-    </li>
-    <li>
-      <a
-        routerLink="/category/5"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        Category Name
-      </a>
-    </li>
+    }
   </ul>
 </aside>

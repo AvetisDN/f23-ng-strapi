@@ -1,5 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {
+  NavigationEnd,
+  NavigationStart,
+  Router,
+  RouterOutlet,
+} from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { ThemeFacade } from './theme.facade';
 import { ToastComponent } from './components/toast/toast.component';
@@ -21,8 +26,19 @@ export class AppComponent {
 
   catService = inject(CategoriesService);
 
-  constructor() {
+  isLoading = false;
+
+  constructor(private router: Router) {
     this.authService.getMe();
     this.catService.getCategories();
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.isLoading = true;
+      }
+      if (event instanceof NavigationEnd) {
+        this.isLoading = false;
+      }
+    });
   }
 }

@@ -7,7 +7,7 @@ import { computed, Injectable, signal } from '@angular/core';
 export class CategoriesService {
   private baseUrl = 'http://localhost:1337';
 
-  categories = signal([]);
+  categories: any = signal([]);
 
   total = computed(() => {
     let tot = this.categories().length;
@@ -28,7 +28,7 @@ export class CategoriesService {
         .subscribe({
           next: (data: any) => {
             this.categories.set(data.data);
-            console.log(data);
+            // console.log(data);
           },
           error: (e) => {
             this.categories.set([]);

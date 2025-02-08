@@ -1,0 +1,26 @@
+<div class="container mx-auto max-w-5xl mt-5 flex flex-col gap-5">
+  @if(post.id) {
+  <h1 class="text-5xl text-pink-600 dark:text-pink-400 font-black text-center">
+    {{ post.title }}
+  </h1>
+  <img
+    [src]="'http://localhost:1337' + post.thumbnail.formats.large.url"
+    [alt]="post.title"
+    class="aspect-[2/1] object-cover rounded-2xl"
+  />
+  <div [innerHTML]="post.content" class="single-content"></div>
+  }
+</div>
+<div class="comment-form container mx-auto max-w-5xl mt-5 sticky bottom-0">
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <textarea
+      type="text"
+      placeholder="Username or E-Mail"
+      formControlName="content"
+    ></textarea>
+    <input type="hidden" formControlName="threadOf" />
+    <button [disabled]="!commentForm.value.content">
+      <i-feather name="send" class="text-primary-50 !w-6 !h-6 !stroke-2" />
+    </button>
+  </form>
+</div>

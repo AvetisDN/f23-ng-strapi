@@ -1,0 +1,17 @@
+<div
+  class="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-lg shadow flex flex-col gap-4"
+>
+  <img
+    [src]="'http://localhost:1337' + post.thumbnail.formats.small.url"
+    [alt]="post.title"
+    class="aspect-[4/3] object-cover"
+  />
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.preambula }}</p>
+  <a
+    [routerLink]="'/post/' + post.documentId"
+    class="self-end text-primary-500 hover:text-pink-500"
+  >
+    Read more...
+  </a>
+</div>

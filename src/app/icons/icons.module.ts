@@ -19,6 +19,7 @@ import {
   Moon,
   Monitor,
   Cpu,
+  Send,
 } from 'angular-feather/icons';
 
 // Select some icons (use an object, not an array)
@@ -40,6 +41,7 @@ const icons = {
   Moon,
   Monitor,
   Cpu,
+  Send,
 };
 
 @NgModule({
